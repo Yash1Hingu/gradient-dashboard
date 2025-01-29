@@ -1,4 +1,4 @@
-if(screen.width <= 512){
+if(window.innerWidth <= 512){
     document.getElementById('sidebar').classList.add('hidden');
 }
 
@@ -7,7 +7,7 @@ function toggleMenu(){
     if (document.getElementById('sidebar').classList.contains('hidden')) {
         document.body.style.gridTemplateColumns = '0 1fr';
     } else {
-        if(screen.width <= 512){
+        if(window.innerWidth <= 512){
             document.body.style.gridTemplateColumns = '400px 1fr';
         } else {
             document.body.style.gridTemplateColumns = '250px 1fr';
