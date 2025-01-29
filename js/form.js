@@ -124,7 +124,7 @@ $(document).ready(function () {
                 return;
             }
     
-            alert("Thank You")
+            $("#content-body").load("./html/dashboard.html");
     
             $(this)[0].reset();
         });

@@ -127,13 +127,27 @@
 }
 
 @media screen and (max-width:565px){
+    .form-container h4{
+        margin-bottom: 16px;
+    }
     .form .form-item{
         display: flex;
         flex-direction: column;
         align-items: start;
         gap: 2px;
     }
+    .form .form-item label{
+        margin-bottom: 6px;
+    }
     .form .form-item .form-item-info{
+        width: 100%;
         margin-top: 2px;
+    }
+    .form .form-item .form-item-info .formate{
+        margin-top: 8px;
+    }
+
+    .form input, .form select{
+        width: 100%;
     }
 }

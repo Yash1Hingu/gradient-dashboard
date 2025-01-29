@@ -352,13 +352,16 @@ body {
 }
 
 @media (max-width: 768px) {
-    body {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr;
+    body{
+        grid-template-columns: 0px 1fr;
     }
-
     .sidebar {
         height: auto;
+    }
+    .main-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .cards,
@@ -373,6 +376,8 @@ body {
     .sales-card {
         width: 100%;
         margin-bottom: 20px;
-        background-color: #ffe4e6;
+    }
+    .footer{
+        flex-direction: column;
     }
 }
