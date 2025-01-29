@@ -1,0 +1,522 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+        Form Validation
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .header {
+            background-color: #4e8ef7;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .header .menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .menu i {
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .main {
+            display: flex;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .content h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .content .breadcrumb {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .content .breadcrumb a {
+            text-decoration: none;
+            color: #4e8ef7;
+            margin-right: 5px;
+        }
+
+        .content .breadcrumb i {
+            margin-right: 5px;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-container form .form-group label {
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-container form .form-group input,
+        .form-container form .form-group select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .form-container form .form-group input[type="file"] {
+            padding: 3px;
+        }
+
+        .form-container form .form-group .form-text {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .form-container form .form-group .form-check {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-container form .form-group .form-check input {
+            margin-right: 10px;
+        }
+
+        .form-container form .form-group .form-check label {
+            margin: 0;
+        }
+
+        .form-container form .form-group .form-check-inline {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .form-container form .form-group .form-check-inline input {
+            margin-right: 5px;
+        }
+
+        .form-container form .form-group .form-check-inline label {
+            margin: 0;
+        }
+
+        .form-container form .btn {
+            padding: 10px 20px;
+            background-color: #4e8ef7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        .footer {
+            background-color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #4e8ef7;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .main {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                box-shadow: none;
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            .form-container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img alt="Logo" src="https://placehold.co/30x30" />
+                <span>
+                    Gradient Able v3.0
+                </span>
+            </div>
+            <div class="menu">
+                <i class="fas fa-bell">
+                </i>
+                <i class="fas fa-cog">
+                </i>
+                <i class="fas fa-user-circle">
+                </i>
+            </div>
+        </div>
+        <div class="main">
+            <div class="sidebar">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-magic">
+                            </i>
+                            Wizard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-check-circle">
+                            </i>
+                            Form Validation
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-crop">
+                            </i>
+                            Images Cropper
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-table">
+                            </i>
+                            Bootstrap Table
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-table">
+                            </i>
+                            Vanilla Table
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-table">
+                            </i>
+                            Data Table
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-table">
+                            </i>
+                            DT Extensions
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-chart-bar">
+                            </i>
+                            Charts
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>
+                    Form Validation
+                </h1>
+                <div class="breadcrumb">
+                    <a href="#">
+                        Forms
+                    </a>
+                    <i class="fas fa-chevron-right">
+                    </i>
+                    <span>
+                        Form Validation
+                    </span>
+                </div>
+                <p>
+                    Bouncer: lightweight form validation script that augments native HTML5 form validation elements and
+                    attributes.
+                </p>
+                <button class="btn">
+                    <i class="fas fa-book">
+                    </i>
+                    Reference
+                </button>
+                <div class="form-container">
+                    <h2>
+                        Form Validation
+                    </h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="file">
+                                Upload any file:
+                            </label>
+                            <input id="file" type="file" />
+                        </div>
+                        <div class="form-group">
+                            <label for="color">
+                                Color Picker:
+                            </label>
+                            <input id="color" type="color" />
+                            <small class="form-text">
+                                7-Character Hexadecimal (ex. #ffffff)
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">
+                                Date:
+                            </label>
+                            <input id="date" type="date" />
+                            <small class="form-text">
+                                YYYY-MM-DD
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">
+                                Time:
+                            </label>
+                            <input id="time" type="time" />
+                            <small class="form-text">
+                                HH:MM (24-hour time)
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="month">
+                                Month:
+                            </label>
+                            <input id="month" type="month" />
+                            <small class="form-text">
+                                YYYY-MM
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email:
+                            </label>
+                            <input id="email" type="email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="url">
+                                URL:
+                            </label>
+                            <input id="url" type="url" />
+                        </div>
+                        <div class="form-group">
+                            <label for="url-tld">
+                                URL without TLD allowed:
+                            </label>
+                            <input id="url-tld" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label for="number">
+                                Number:
+                            </label>
+                            <input id="number" type="number" />
+                        </div>
+                        <div class="form-group">
+                            <label for="number-no-decimals">
+                                Number (no decimals):
+                            </label>
+                            <input id="number-no-decimals" step="1" type="number" />
+                        </div>
+                        <div class="form-group">
+                            <label for="number-min-max">
+                                Number with Min and Max:
+                            </label>
+                            <input id="number-min-max" max="7" min="2" type="number" />
+                            <small class="form-text">
+                                Must be between 2 and 7
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="tel">
+                                Telephone Number:
+                            </label>
+                            <input id="tel" type="tel" />
+                            <small class="form-text">
+                                123-456-7890
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">
+                                Password:
+                            </label>
+                            <input id="password" type="password" />
+                            <small class="form-text">
+                                At least 1 uppercase character, 1 lowercase character, and 1 number
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">
+                                Confirm Password:
+                            </label>
+                            <input id="confirm-password" type="password" />
+                            <small class="form-text">
+                                must match the field above
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="text-min-max">
+                                Text with MinLength and MaxLength:
+                            </label>
+                            <input id="text-min-max" maxlength="9" minlength="3" type="text" />
+                            <small class="form-text">
+                                must be between 3 and 9 characters long
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="select">
+                                Select:
+                            </label>
+                            <select id="select">
+                                <option value="select">
+                                    select
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Radio Buttons:
+                            </label>
+                            <div class="form-check-inline">
+                                <input id="radio-yes" name="radio" type="radio" value="yes" />
+                                <label for="radio-yes">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <input id="radio-no" name="radio" type="radio" value="no" />
+                                <label for="radio-no">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Checkboxes:
+                            </label>
+                            <div class="form-check">
+                                <input id="checkbox-default" type="checkbox" />
+                                <label for="checkbox-default">
+                                    Default checkbox
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn" type="submit">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>
+                Gradient Able ♥ crafted by Team Codedthemes
+            </span>
+            <div>
+                <a href="#">
+                    Home
+                </a>
+                <a href="#">
+                    Documentation
+                </a>
+                <a href="#">
+                    Support
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
