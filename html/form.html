@@ -10,23 +10,26 @@
         <span>></span>
         <p>Form Validation</p>
     </div>
- </div>
- <div class="form-reference">
+</div>
+<div class="form-reference">
     <h4>Bouncer</h5>
-    <p>lightweight form validation script that augments native HTML5 form validation elements and attributes.</p>
-    <div class="form-reference-btn">
-        <i>
-            <img src="./assets/link.svg" alt="link" width="16px">
-        </i>
-        <p>Reference</p>
-    </div>
- </div>
+        <p>lightweight form validation script that augments native HTML5 form validation elements and
+            attributes.</p>
+        <div class="form-reference-btn">
+            <i>
+                <img src="./assets/link.svg" alt="link" width="16px">
+            </i>
+            <p>Reference</p>
+        </div>
+</div>
 <div class="form-container">
     <h4>Form Validation</h4>
     <form class="form" id="myForm" enctype="multipart/form-data">
         <div class="form-item">
             <label for="file">Upload any file:</label>
-            <input type="file" name="file" id="file">
+            <div class="form-item-info">
+                <input type="file" name="file" id="file">
+            </div>
         </div>
         <div class="form-item">
             <label for="color-picker">Color Picker:</label>
@@ -58,27 +61,39 @@
         </div>
         <div class="form-item">
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email">
+            <div class="form-item-info">
+                <input type="email" name="email" id="email">
+            </div>
         </div>
         <div class="form-item">
             <label for="URL">URL</label>
-            <input type="url" name="url" id="url">
+            <div class="form-item-info">
+                <input type="url" name="url" id="url">
+            </div>
         </div>
         <div class="form-item">
             <label for="nourl">URL without TLD allowed:</label>
-            <input type="text" name="nourl" id="nourl">
+            <div class="form-item-info">
+                <input type="text" name="nourl" id="nourl">
+            </div>
         </div>
         <div class="form-item">
             <label for="number">Number:</label>
-            <input type="number" name="number" id="number">
+            <div class="form-item-info">
+                <input type="number" name="number" id="number">
+            </div>
         </div>
         <div class="form-item">
             <label for="nonumber">Number (no decimals)</label>
-            <input type="number" name="nonumber" id="nonumber">
+            <div class="form-item-info">
+                <input type="number" name="nonumber" id="nonumber">
+            </div>
         </div>
         <div class="form-item">
             <label for="rangenumber">Number with Min and Max</label>
-            <input type="number" name="rangenumber" id="rangenumber" min="2" max="7">
+            <div class="form-item-info">
+                <input type="number" name="rangenumber" id="rangenumber" min="2" max="7">
+            </div>
         </div>
         <div class="form-item">
             <label for="telenumber">Telephone Number:</label>
@@ -89,9 +104,10 @@
         </div>
         <div class="form-item">
             <label for="password">Password</label>
-            <div class="form-item-info"> 
+            <div class="form-item-info">
                 <input type="password" name="password" id="password">
-                <div class="formate">At least 1 upprecase character, 1 lowercase character, and 1 number</div>
+                <div class="formate">At least 1 upprecase character, 1 lowercase character, and 1 number
+                </div>
             </div>
         </div>
         <div class="form-item">
@@ -110,30 +126,37 @@
         </div>
         <div class="form-item">
             <label for="select">Select</label>
-            <select name="select" id="select">
-                <option value="select">select</option>
-                <option value="select2">select2</option>
-                <option value="select3">select3</option>
-            </select>
+            <div class="form-item-info">
+                <select name="select" id="select">
+                    <option value="select">select</option>
+                    <option value="select2">select2</option>
+                    <option value="select3">select3</option>
+                </select>
+            </div>
         </div>
         <div class="form-item">
             <label for="radio">Radio Buttons</label>
-            <div>
+            <div class="form-item-info">
                 <div>
-                    <input type="radio" name="radiobtn" id="radioyes">
-                    <label for="radioyes">Yes</label>
+                    <div>
+                        <input type="radio" name="radiobtn" id="radioyes">
+                        <label for="radioyes">Yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="radiobtn" id="radiono">
+                        <label for="radiono">No</label>
+                    </div>
                 </div>
-                <div>
-                    <input type="radio" name="radiobtn" id="radiono">
-                    <label for="radiono">No</label>
-                </div>
+
             </div>
         </div>
         <div class="form-item">
             <label for="checkboxelabel">Checkboxes</label>
-            <div>
-                <input type="checkbox" name="checkboxes" id="checkboxes">
-                <label for="checkboxes">Default checkbox</label>
+            <div class="form-item-info">
+                <div>
+                    <input type="checkbox" name="checkboxes" id="checkboxes">
+                    <label for="checkboxes">Default checkbox</label>
+                </div>
             </div>
         </div>
         <div class="form-item">

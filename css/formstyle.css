@@ -56,12 +56,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
-    align-items: center;
+    align-items: stretch;
     margin-bottom: 16px;
 }
 .form .form-item label{
     text-align: right;
     color: #4e4e4e;
+    margin-top: 8px;
 }
 
 .form input, .form select{
@@ -105,9 +106,13 @@
     border-radius: 8px;
 }
 
-
-.form .form-item .form-item-info{
-    margin-top: 18px
+.form .form-item p.warning {
+    margin: 8px 0;
+    font-size: 12px;
+}
+.form .form-item .warning{
+    color: #ff738a;
+    border-color: #ff738a;
 }
 
 .form .form-item .form-item-info .formate{
