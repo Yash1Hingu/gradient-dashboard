@@ -48,3 +48,9 @@ document.getElementById("sales").onclick = function () {
     }
     loadContent("./html/dashboard.html")
 }
+
+
+// // sub-menu
+// document.getElementsByClassName("sub-menu")[0].childNodes.forEach(node => {
+//     console.log(node)
+// })
